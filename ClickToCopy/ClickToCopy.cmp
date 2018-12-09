@@ -1,0 +1,20 @@
+<aura:component access="global">
+
+    <aura:attribute name="text" type="String" />
+    <aura:attribute name="uniqueId" type="String" />
+    <aura:attribute name="tooltip" type="String" default="Click to Copy" />
+    <aura:attribute name="messageTitle" type="String" default="Copied!" />
+    <aura:attribute name="messageBody" type="String" default="" />
+    <aura:attribute name="showToast" type="Boolean" default="true" />
+
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <input size="{! v.text.length }"
+           class="click-to-copy"
+           type="text"
+           id="{! v.uniqueId }"
+           value="{! v.text }"
+           title="{! v.tooltip }"
+           onclick="{! c.handleClick }" />
+
+</aura:component>
