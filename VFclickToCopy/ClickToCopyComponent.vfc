@@ -1,20 +1,20 @@
 <apex:component>
     <style>
-      .click-to-copy {
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            outline: none;
+        .click-to-copy {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
         }
         .message {
-        	display: none;
+        display: none;
         }
         .message.show {
-        	display: inline-block;
+        display: inline-block;
         }
-   </style>
+    </style>
 
-  	<apex:attribute name="text" type="String" description="The text to be clicked" />
+    <apex:attribute name="text" type="String" description="The text to be clicked" />
     <apex:attribute name="uniqueId" type="String" default="myId" description="ID needs to be unique if multiple on page" />
     <apex:attribute name="tooltip" type="String" default="Click to Copy" description="Text to display on hover" />
     <apex:attribute name="showMessage" type="Boolean" default="true" description="Display confirmaion text after click?" />
@@ -37,7 +37,7 @@
             document.execCommand('copy');
             showMessage(uniqueId);
         }
-    	function showMessage(uniqueId) {
+        function showMessage(uniqueId) {
             if ({! showMessage }) {
                 const message = document.getElementById(uniqueId + '-message');
                 message.className += "show";
