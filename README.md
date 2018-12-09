@@ -1,5 +1,5 @@
 # click-to-copy
-Copies text directly to the clipboard
+Salesforce lightning component: Copies text directly to the clipboard
 
 # How to use
 
