@@ -1,0 +1,17 @@
+<apex:page>
+
+    <apex:pageBlock title="Click to Copy Demo">
+        <apex:pageBlockSection columns="1">
+
+            <apex:outputPanel layout="block">
+
+                <c:ClickToCopy text="Hi There!" uniqueId="hiToYouToo" />
+                <c:ClickToCopy text="How are you?" uniqueId="GreatThanks" />
+                <c:ClickToCopy text="Go ahead and click the text" uniqueId="clickMe" />
+
+            </apex:outputPanel>
+
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+
+</apex:page>

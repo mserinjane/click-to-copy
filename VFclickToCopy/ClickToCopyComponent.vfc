@@ -1,0 +1,50 @@
+<apex:component>
+    <style>
+      .click-to-copy {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+        .message {
+        	display: none;
+        }
+        .message.show {
+        	display: inline-block;
+        }
+   </style>
+
+  	<apex:attribute name="text" type="String" description="The text to be clicked" />
+    <apex:attribute name="uniqueId" type="String" default="myId" description="ID needs to be unique if multiple on page" />
+    <apex:attribute name="tooltip" type="String" default="Click to Copy" description="Text to display on hover" />
+    <apex:attribute name="showMessage" type="Boolean" default="true" description="Display confirmaion text after click?" />
+    <apex:attribute name="messageText" type="String" default="Copied!" description="Message text to display after click" />
+
+    <input size="{! LEN(text) }"
+           class="click-to-copy"
+           type="text"
+           id="{! uniqueId }"
+           value="{! text }"
+           title="{! tooltip }"
+           onclick="onClick(this, '{! uniqueId }' );" />
+    <span id="{! uniqueId + '-message' }" class="message">{! messageText }</span>
+
+    <script>
+        function onClick(input, uniqueId) {
+            const textInput = document.getElementById(uniqueId);
+            textInput.focus();
+            textInput.select();
+            document.execCommand('copy');
+            showMessage(uniqueId);
+        }
+    	function showMessage(uniqueId) {
+            if ({! showMessage }) {
+                const message = document.getElementById(uniqueId + '-message');
+                message.className += "show";
+                setTimeout(function(){
+                    message.className = 'message';
+                }, 3000);
+            }
+        }
+    </script>
+</apex:component>
